@@ -1,0 +1,24 @@
+
+.product-div{
+    min-height: 300px;
+    width: 500px;
+    color: black;
+    display: flex;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 1px black;
+    background-color: rgb(45, 100, 229);
+    padding: 5px;
+    .prod-img{
+        flex: 1;
+        
+    }
+    .prod-info{
+        display: flex;
+        flex-direction: column;
+        background-color: red;
+        flex: 1;
+        padding: 5px;
+        gap: 1rem;
+        
+    }
+}

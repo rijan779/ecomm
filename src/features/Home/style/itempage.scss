@@ -1,0 +1,35 @@
+.main-item-page{
+    padding: 2rem;
+}
+
+.items-page {
+    box-sizing: border-box;
+    min-height: 100vh;
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 2rem;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0 2rem 2rem;
+}
+
+.footer{
+    display: flex;
+
+    width: 100%;
+    align-items: center;
+ 
+    justify-content: space-between;
+    .primary-btn{
+        background-color: rgb(41, 96, 198);
+        height: 2rem;
+        width: 10rem;
+    }
+}

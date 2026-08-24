@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 import "../style/cart.scss"
 import { useProducts } from "../../auth/hooks/product.hook"
 
@@ -30,12 +31,22 @@ const Cart = ()=>{
         })
         )
     }
+    function handleDelete(cartItem){
+        setProdInfoCart((prev)=> prev.filter(item => item.product._id !== cartItem.product._id))
+    }
+
     const totalPrice = prodInfoCart.reduce((total,item)=>{
         return total + Number (item.product.price)*item.quantity    //accumulator = total,array ko first item = item bcz prodInfocart.gareko cha and initial value = 0 so kei suruma vayean vane pani 0 chai return aucha
     },0)
 
     return (
             <main className="cart-main">
+                <div className="back-btn-div">
+                    <Link to={"/home"}>
+                    <button  className="back-btn"> Back to homepage</button>
+                    </Link>
+                </div>
+                
             {prodInfoCart.map((cartItem)=>(
                 
                 <div className="cart-item">
@@ -50,7 +61,7 @@ const Cart = ()=>{
                             <button onClick={()=>handleQuanity(false,cartItem)} className="minus button">-</button>
                             <input className="quantity-input" placeholder="Quantity" value={cartItem.quantity} onChange={(e)=> setQuantity(Number(e.target.value))}></input>
                             <button onClick={()=>handleQuanity(true,cartItem)} className="button plus">+</button>
-                            <button className="delete">Delete</button>
+                            <button onClick={()=>handleDelete(cartItem)} className="delete">Delete</button>
                         </div>
                     </div>
                     

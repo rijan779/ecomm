@@ -36,6 +36,11 @@ const ItemsPage = () => {
 
     return (
         <main className="main-item-page">
+            <div className="back-btn-div">
+                    <Link to={"/home"}>
+                    <button  className="back-btn primary-btn"> Back to homepage</button>
+                    </Link>
+                </div>      
         <div className="items-page">
             {products.map((product,idx)=>(
                 
@@ -44,17 +49,27 @@ const ItemsPage = () => {
             </div>
             <div className="footer">
 
-                {pageNo > 1 && (
-                <Link to={`/page/${prevPage}`}>
-                    <button className="primary-btn">Previous Page</button>
-            </Link>
-                    )}
+               <div className="footer">
 
-                    {}
-            <Link to={`/page/${nextPage}`}>
-             <button className="primary-btn">Next Page</button>
-            
-            </Link>
+    <div className="prev-btn-div">
+            {pageNo > 1 && (
+                    <Link to={`/page/${prevPage}`}>
+                            <button className="primary-btn">
+                                    Previous Page
+                                </button>
+                            </Link>
+                        )}
+                    </div>
+
+                    <div className="next-btn-div">
+                        <Link to={`/page/${nextPage}`}>
+                            <button className="next-page primary-btn">
+                                Next Page
+                            </button>
+                        </Link>
+                    </div>
+
+                </div>
             </div>
         </main>
             

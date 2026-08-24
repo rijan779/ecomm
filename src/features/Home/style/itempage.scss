@@ -1,12 +1,13 @@
 .main-item-page{
     padding: 2rem;
+    background-color: rgb(200, 198, 145);
 }
 
 .items-page {
     box-sizing: border-box;
     min-height: 100vh;
     width: 100%;
-
+    
     display: grid;
     grid-template-columns: repeat(3,1fr);
     gap: 2rem;
@@ -20,16 +21,20 @@
     padding: 0 2rem 2rem;
 }
 
-.footer{
-    display: flex;
-
+.footer {
     width: 100%;
-    align-items: center;
- 
+    display: flex;
     justify-content: space-between;
-    .primary-btn{
-        background-color: rgb(41, 96, 198);
-        height: 2rem;
-        width: 10rem;
-    }
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.prev-btn-div,
+.next-btn-div {
+    width: 150px;
+}
+
+.next-btn-div {
+    display: flex;
+    justify-content: flex-end;
 }

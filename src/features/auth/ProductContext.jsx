@@ -5,6 +5,8 @@ export const ProdContext = createContext()
 export const ProdProvider = ({children})=>{
     const [products,setProducts] = useState([])
     const [product,setProduct] = useState(null)
+    const [totalProducts,setTotalProducts] = useState([])
+    const [searchedProds, setSearchedProds] = useState([]);
     const [user,setUser]=useState(null)
     const [pageId,setPageId]=useState(1)
     const [totalPages,setTotalPages] = useState(null)
@@ -67,7 +69,7 @@ export const ProdProvider = ({children})=>{
         // cart restored ✅
 
     return (
-        <ProdContext.Provider value={{ products, setProducts, user, setUser,pageId,setPageId,totalPages,setTotalPages,remPages,setRemPages,product,setProduct,cartCount,setCartCount,prodInfoCart,setProdInfoCart,price,setPrice }}>
+        <ProdContext.Provider value={{ products, setProducts, user, setUser,searchedProds,setSearchedProds,pageId,setPageId,totalPages,setTotalPages,remPages,setRemPages,product,setProduct,cartCount,setCartCount,prodInfoCart,setProdInfoCart,price,setPrice,totalProducts,setTotalProducts }}>
             {children}
         </ProdContext.Provider>
     )

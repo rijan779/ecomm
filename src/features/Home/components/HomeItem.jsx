@@ -11,7 +11,7 @@ const HomeItem = ({ product }) => {
     console.log(`Home item ${product}`)
     if (!product) return null;
 
-    function handleCart(product) {
+    const handleCart= (product)=> {
     if (product) {
         setProdInfoCart((prev) => [
             ...prev,

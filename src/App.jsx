@@ -18,6 +18,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/home" element={<Protected><Home /></Protected>}/>
           <Route path="/page/:pageId" element={<Protected><ItemsPage /></Protected>} />
+          <Route path="/search/:searchItem" element={<Protected><ItemsPage/></Protected>} />
           <Route path="product/cart" element={<Cart />}/>
         </Routes>
       </BrowserRouter>

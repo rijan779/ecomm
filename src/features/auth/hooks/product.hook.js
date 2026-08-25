@@ -10,7 +10,7 @@ export const useProducts = ()=>{
     if(!context){
         throw new Error("useProducts must be associated with prodProvider")
     }
-    const { products, setProducts,pageId,setPageId,totalPages,setTotalPages,remPages,setRemPages,product,setProduct,cartCount,setCartCount,prodInfoCart,setProdInfoCart } = context;
+    const { products, setProducts,pageId,setPageId,totalPages,setTotalPages,remPages,setRemPages,product,setProduct,cartCount,setCartCount,prodInfoCart,setProdInfoCart,totalProducts,setTotalProducts,searchedProds,setSearchedProds } = context;
 
     const handleProducts = async (pageNo) => {
         setLoading(true);
@@ -22,6 +22,7 @@ export const useProducts = ()=>{
                 setPageId(data.currentPage)
                 setTotalPages(data.totalPages)
                 setRemPages(data.remPages)
+                setTotalProducts(data.totalProductsInDb)
             }
 
             console.log(`toal pages ${totalPages}`)
@@ -54,5 +55,5 @@ export const useProducts = ()=>{
         }
     }
 
-    return { products, loading, handleProducts,pageId,totalPages,remPages,product,handleProduct,cartCount,setCartCount,prodInfoCart,setProdInfoCart };
+    return { products, loading, handleProducts,pageId,totalPages,remPages,product,handleProduct,cartCount,setCartCount,prodInfoCart,setProdInfoCart,totalProducts,searchedProds,setSearchedProds };
 }

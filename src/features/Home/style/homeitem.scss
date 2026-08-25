@@ -1,33 +1,97 @@
-.home-item{
-    height: 400px;
-    min-width: 0;  //bcz grid le controll gari raxa widdth
-    box-sizing: border-box;
-    padding: 0.5rem;
-    background-color: grey;
+.home-item {
     display: flex;
     flex-direction: column;
-    border: 2px solid black;
-    border-radius: 0.5rem;
+    min-width: 0;
+    min-height: 440px;
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    box-shadow: 0 5px 18px rgba(47, 43, 35, 0.06);
 
+    .item-img {
+        height: 255px;
+        overflow: hidden;
+        background: var(--surface-soft);
+        border-bottom: 1px solid var(--border);
 
-    
-    .item-img{
-        flex: 0.7;
-    }
-    .item-info{
-        flex: 0.3;
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
-    .div-button{
-        flex:0.1;
-        padding: 0.5rem;
+    }
+
+    .item-info {
         display: flex;
-        justify-content: space-between;
-        .button{
-            color: black;
-            border: none;
-            padding: 0.25rem;
+        flex: 1;
+        flex-direction: column;
+        padding: 1.1rem 1.1rem 0.7rem;
+
+        h1 {
+            margin: 0 0 0.45rem;
+            color: var(--text);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.45rem;
+            line-height: 1.25;
+        }
+
+        .prod-detail {
+            display: -webkit-box;
+            margin: 0;
+            overflow: hidden;
+            color: var(--muted);
+            font-size: 0.92rem;
+            line-height: 1.55;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+        }
+
+        .price {
+            margin: auto 0 0;
+            padding-top: 0.9rem;
+            color: var(--accent-dark);
+            font-size: 1.05rem;
+        }
+    }
+
+    .div-button {
+        display: flex;
+        gap: 0.65rem;
+        padding: 0.35rem 1.1rem 1.1rem;
+
+        a {
+            flex: 1;
+        }
+
+        .button {
+            width: 100%;
+            min-height: 2.5rem;
+            padding: 0.55rem 0.75rem;
+            color: var(--text);
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            font-weight: 600;
             cursor: pointer;
-            
+        }
+
+        .item-cart-button {
+            color: #fff;
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .item-cart-button:hover {
+            background: var(--accent-dark);
+            border-color: var(--accent-dark);
+        }
+
+        .details-button:hover {
+            color: var(--accent-dark);
+            background: var(--surface-soft);
+            border-color: #b9aa98;
         }
     }
 }

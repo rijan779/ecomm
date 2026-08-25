@@ -1,55 +1,96 @@
-*{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-.main-container {
-    background-color: rgb(27, 25, 25);
-    color: white;
-    min-height: 100vh;
-    padding: 2rem;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.main-div{
-    min-height: 400px;
-    min-width: 400px;
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(120, 33, 40);
-    padding: 10px;
-    border-radius: 5px;
-    gap: 5px;
-    .name-info{
-        display: flex;
-        justify-content: space-between;
-        .name-div{
-            display: flex;
-            flex-direction: column;
-        }
+.main-div {
+    width: min(520px, 100%);
+    padding: 2.5rem;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
 
+    h1 {
+        margin: 0 0 1.5rem;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 2.25rem;
     }
-    input{
-        height: 30px;
-        border: none;
-        border-radius: 5px;
+
+    .name-info {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
     }
-    .email,.password{
-        margin-top: 10px;
+
+    .name-div,
+    > .email,
+    > .password {
         display: flex;
         flex-direction: column;
-    }
-    .primary-button{
-        margin-top: 30px;
-        height: 40px;
+        gap: 0.45rem;
     }
 
+    > .email,
+    > .password {
+        margin-top: 1rem;
+    }
+
+    label {
+        color: var(--text);
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+
+    input:not(.primary-button) {
+        width: 100%;
+        min-height: 2.75rem;
+        padding: 0.65rem 0.75rem;
+        color: var(--text);
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 5px;
+        outline: none;
+    }
+
+    input:not(.primary-button):focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(154, 95, 58, 0.12);
+    }
+
+    .primary-button {
+        width: 100%;
+        min-height: 2.8rem;
+        margin-top: 1.75rem;
+        color: #fff;
+        background: var(--accent);
+        border: 1px solid var(--accent);
+        border-radius: 5px;
+        font-weight: 700;
+        cursor: pointer;
+    }
+
+    .primary-button:hover {
+        background: var(--accent-dark);
+        border-color: var(--accent-dark);
+    }
+
+    p {
+        margin: 1.25rem 0 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+        text-align: center;
+    }
+
+    a {
+        margin-left: 0.3rem;
+        color: var(--accent-dark);
+        font-weight: 700;
+    }
 }
 
-.primary-button:hover{
-    background-color: rgb(175, 106, 118);
-    cursor: pointer;
+@media (max-width: 550px) {
+    .main-div {
+        padding: 1.75rem 1.25rem;
+
+        .name-info {
+            grid-template-columns: 1fr;
+        }
+    }
 }
-
-
-

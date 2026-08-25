@@ -27,6 +27,8 @@ export const allProdController = async (req, res) => {
     try {
         const pageNo = Number(req.params.pageNo);
         const compPerPage = 6;
+        
+        const totalProductsInDb = await prodModel.find()
 
         const allProducts = await prodModel
             .find()
@@ -44,6 +46,7 @@ export const allProdController = async (req, res) => {
         res.status(200).json({
             message: "all products fetched successfully",
             totalProducts,
+            totalProductsInDb,
             totalPages,
             remPages,
             currentPage: pageNo,

@@ -1,9 +1,30 @@
 import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import "../style/navbar.scss"
 import { useProducts } from "../../auth/hooks/product.hook"
-function Navbar(){
+import { useState } from "react"
 
-    const {cartCount} = useProducts()
+
+function Navbar(){
+    const navigate = useNavigate()
+    const [searchItem,setSearchItem]=useState("")
+    const {cartCount,totalProducts,setTotalProducts,searchedProds,setSearchedProds} = useProducts();
+
+    function handleSubmit(){
+
+    const result = totalProducts.filter((item) =>
+        item.prodName
+            .toLowerCase()
+            .includes(searchItem.trim().toLowerCase())
+    );
+
+
+    console.log("SEARCH RESULT:", result);
+
+    setSearchedProds(result);
+
+    navigate(`/search/${searchItem}`)
+    }
 
     return (
         <div className="nav-container">
@@ -18,7 +39,8 @@ function Navbar(){
                     </div>
                     <div className="nav-second">
                         <Link className="link" to="/product/cart"><div>{cartCount}</div></Link>
-                        <Link className="link" to="">Search</Link>
+                        <input onChange={(e)=> setSearchItem(e.target.value)} placeholder="eg: product name"></input>
+                        <button onClick={()=>handleSubmit()}>Search</button>
                         <Link className="link" to="">Account</Link>
                     </div>
                 </div>

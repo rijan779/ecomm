@@ -4,7 +4,7 @@ import "../style/cart.scss"
 import { useProducts } from "../../auth/hooks/product.hook"
 
 const Cart = ()=>{
-    const {product,handleProduct,products,prodInfoCart,setProdInfoCart,setPrice,price,setCartCount} = useProducts()
+    const {product,handleProduct,products,prodInfoCart,setProdInfoCart,setPrice,price,cartCount,setCartCount} = useProducts()
     
 
     function handleQuanity(value,cartItem){
@@ -33,7 +33,9 @@ const Cart = ()=>{
     }
     function handleDelete(cartItem){
         setProdInfoCart((prev)=> prev.filter(item => item.product._id !== cartItem.product._id))
+        if(cartCount>=0){
         setCartCount((prev)=> prev -1)
+        }
     }
 
     const totalPrice = prodInfoCart.reduce((total,item)=>{
@@ -72,7 +74,9 @@ const Cart = ()=>{
              ))} 
              <div className="order">
                                 <p className="quantity-price">Total Price: {totalPrice} </p>
-                                <button className="button">Click to order</button>
+                                <Link to={"/order"}>
+                                    <button className="button">Click to order</button>
+                                </Link>
                             </div>
         </main>
         

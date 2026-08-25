@@ -7,6 +7,7 @@ import ItemsPage from "./features/Home/pages/ItemsPage.jsx"
 import { ProdProvider } from "./features/auth/ProductContext.jsx"
 import { Protected } from "./features/Home/components/Protected.jsx"
 import Cart from "./features/Home/pages/Cart.jsx"
+import Order from "./features/Home/pages/Order.jsx"
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/page/:pageId" element={<Protected><ItemsPage /></Protected>} />
           <Route path="/search/:searchItem" element={<Protected><ItemsPage/></Protected>} />
           <Route path="product/cart" element={<Cart />}/>
+          <Route path="/order" element={<Order />} />
         </Routes>
       </BrowserRouter>
     </ProdProvider>

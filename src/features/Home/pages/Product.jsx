@@ -1,12 +1,30 @@
 import "../style/product.scss"
 import { useProducts } from "../../auth/hooks/product.hook"
 import { useEffect } from "react"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 
 const Product = ()=>{
-    const {product,loading,handleProduct} = useProducts()
+    const {product,loading,handleProduct,setProdInfoCart,setCartCount} = useProducts()
 
     const {productId} = useParams()
+
+    const handleCartFromDetails= (product)=> {
+    if (product) {
+        setProdInfoCart((prev) => [
+            ...prev,
+            {
+                product: product,
+                quantity: 1,
+                price : product.price
+            }
+            
+        ]);
+        setCartCount((prev) => prev + 1);
+    } else {
+        console.log("Couldn't get product");
+    }
+}
+
 
     useEffect(()=>{
         handleProduct(productId)
@@ -21,6 +39,12 @@ if (!product) {
 }
 
     return (
+        <main>
+        <div className="back-btn-div">
+                    <Link to={"/home"}>
+                    <button  className="back-btn primary-btn"> Back to homepage</button>
+                    </Link>
+                </div>
         <div className="product-div">
             <div className="prod-img">
                 <img src="" alt=""></img>
@@ -31,9 +55,10 @@ if (!product) {
                 <h3 className="price">Rs: {product?.price}</h3>
                 <p className="prod-detail">{product?.description}</p>
                 <small className="stock"></small>
-                <button  className="add-cart-btn">ADD TO CART</button>
+                <button onClick={()=>handleCartFromDetails(product)} className="add-cart-btn">ADD TO CART</button>
             </div>
         </div>
+        </main>
     )
 }
 export default Product

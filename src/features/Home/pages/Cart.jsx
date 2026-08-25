@@ -4,7 +4,7 @@ import "../style/cart.scss"
 import { useProducts } from "../../auth/hooks/product.hook"
 
 const Cart = ()=>{
-    const {product,handleProduct,products,prodInfoCart,setProdInfoCart,setPrice,price} = useProducts()
+    const {product,handleProduct,products,prodInfoCart,setProdInfoCart,setPrice,price,setCartCount} = useProducts()
     
 
     function handleQuanity(value,cartItem){
@@ -33,9 +33,11 @@ const Cart = ()=>{
     }
     function handleDelete(cartItem){
         setProdInfoCart((prev)=> prev.filter(item => item.product._id !== cartItem.product._id))
+        setCartCount((prev)=> prev -1)
     }
 
     const totalPrice = prodInfoCart.reduce((total,item)=>{
+        
         return total + Number (item.product.price)*item.quantity    //accumulator = total,array ko first item = item bcz prodInfocart.gareko cha and initial value = 0 so kei suruma vayean vane pani 0 chai return aucha
     },0)
 

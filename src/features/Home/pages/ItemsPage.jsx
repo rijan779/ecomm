@@ -6,14 +6,17 @@ import "../style/itempage.scss"
 import { useParams } from "react-router-dom";
 
 const ItemsPage = () => {
-    const { products, loading, pageId, handleProducts,totalPages,remPages } = useProducts();
+    const { products, loading, pageId, handleProducts,totalPages,remPages,searchedProds } = useProducts();
 
 
     
-    let { pageId:pageParam } = useParams();
+    let { pageId:pageParam,searchItem } = useParams();
     const pageNo = Number(pageParam);
 
+
     const prevPage = pageNo - 1;
+
+    const isSearchPage = Boolean(searchItem)
 
     const nextPage = pageNo === totalPages? 1 : pageNo + 1;
 
@@ -22,17 +25,16 @@ const ItemsPage = () => {
     console.log(pageNo)
 
         useEffect(()=>{
+        if(!isSearchPage){
             handleProducts(pageNo)
-        },[pageNo])
+            }
+        },[pageNo,isSearchPage])
 
         
     if (loading) {
         return <main>Loading...</main>;
     }
 
-    if (!products || products.length === 0) {
-        return <main>No products found.</main>;
-    }
 
     return (
         <main className="main-item-page">
@@ -42,10 +44,23 @@ const ItemsPage = () => {
                     </Link>
                 </div>      
         <div className="items-page">
-            {products.map((product,idx)=>(
-                
-                <HomeItem key={product._id} product={product}></HomeItem>
-            ))}
+
+            { isSearchPage ? 
+
+                searchedProds.map((product) => (
+                    <HomeItem
+                        key={product._id}
+                        product={product}
+                    />
+                ))
+            : products.map((product) => (
+                    <HomeItem
+                        key={product._id}
+                        product={product}
+                        />
+                    ))
+                }
+            
             </div>
             <div className="footer">
 

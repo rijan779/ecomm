@@ -11,7 +11,7 @@ export const authRegister = async (req,res)=>{
     })
 
     if(userAlreadyRegistered){
-        return res.staus(400).json({
+        return res.status(400).json({
             message:"USer already registered!!"
         })
     }
@@ -77,6 +77,7 @@ export const authLogin = async (req,res)=>{
         message:"Login successfull!",
         user:{
             id:user._id,
+            firstName:user.firstName,
             email:user.email,
             password:user.password
         }

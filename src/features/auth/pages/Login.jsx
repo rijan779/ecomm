@@ -18,7 +18,7 @@ function Login(){
         try {
             const response = await handleLogin({email,password})
             if (response?.user) {
-                setUser(response.user)
+                setUser(response.user.firstName)
                 navigate("/home")
                 return
             }

@@ -1,16 +1,22 @@
-# React + Vite
+# E-Commerce Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An e-commerce website I built while learning and improving my backend development skills.
 
-Currently, two official plugins are available:
+The frontend is built with React, and the backend uses **Node.js, Express, and MongoDB**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Features
 
-## React Compiler
+* User login and registration
+* Product browsing
+* Search and category filtering
+* Pagination
+* Product details
+* Shopping cart
+* Order system (very basic)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Tech
 
-## Expanding the ESLint configuration
+**Frontend:** React, SCSS(dunno why), Axios
+**Backend:** Node.js, Express, MongoDB, Mongoose
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Still working on it and adding new features as I learn more.
